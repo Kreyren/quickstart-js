@@ -1,11 +1,13 @@
 FROM gitpod/workspace-full
 
-USER gitpod
+USER root
 
 # Get xlogo for testing
 RUN true \
 	&& apt-get update \
 	&& apt-get install -y xlogo
+
+USER gitpod
 
 RUN true \
 	# HOTFIX for https://github.com/gitpod-io/gitpod/issues/1521

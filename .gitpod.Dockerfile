@@ -5,7 +5,7 @@ USER root
 # Get xlogo for testing
 RUN true \
 	&& apt-get update \
-	&& apt-get install -y xlogo
+	&& apt-get install -y x11-apps
 
 USER gitpod
 

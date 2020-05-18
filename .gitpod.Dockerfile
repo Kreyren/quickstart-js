@@ -1,10 +1,9 @@
 FROM gitpod/workspace-full
-                    
+
 USER gitpod
 
-# Install custom tools, runtime, etc. using apt-get
-# For example, the command below would install "bastet" - a command line tetris clone:
-#
-# RUN sudo apt-get -q update && #     sudo apt-get install -yq bastet && #     sudo rm -rf /var/lib/apt/lists/*
-#
-# More information: https://www.gitpod.io/docs/config-docker/
+RUN true \
+	# HOTFIX for https://github.com/gitpod-io/gitpod/issues/1521
+	&& if [ "$(npm --version)" != 6.14.5 ]; then npm install -g npm; else true; fi \
+	&& npm install \
+	&& npm install firebase firebase-tools -g

@@ -1,4 +1,8 @@
 tasks:
   - init: npm install && npm i firebase firebase-tools -g
+ ports:
+    # Set for `firebase login:ci` which opends authentification on google.com website that doesn't work in iframe (iframe used by theia's preview)
+  - port: 9005
+    onOpen: open-browser
 image:
   file: .gitpod.Dockerfile
